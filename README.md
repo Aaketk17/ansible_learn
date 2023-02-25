@@ -35,3 +35,24 @@ The gather_facts module is often used at the beginning of an Ansible playbook to
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#### ```ansible.cfg```
+
+The ansible.cfg file is a configuration file used by Ansible to define various settings and options for executing Ansible commands and playbooks. The ansible.cfg file can be used to customize the behavior of Ansible, set default values for command-line options, and configure connection settings for remote hosts.
+
+The ansible.cfg file is typically located in the project directory or in the home directory of the user executing Ansible. When executing an Ansible command or playbook, Ansible searches for the ansible.cfg file in the following locations, in order:
+
+1. The current directory
+2. The home directory of the user executing the command
+3. /etc/ansible/ansible.cfg
+
+Here are some examples of settings that can be configured in the ansible.cfg file:
+
+* Default values for command-line options, such as the default inventory file to use or the default username to use for SSH connections.
+* Connection settings for remote hosts, such as the SSH private key to use or the number of parallel connections to use when executing tasks.
+* Custom module paths, so that Ansible can find custom modules located in non-standard directories.
+* Custom plugin paths, so that Ansible can find custom plugins located in non-standard directories.
+
+By modifying the ansible.cfg file, you can customize the behavior of Ansible to better suit your needs and simplify your workflows.
+
+if we define inventory file in the ansible.cfg file then we dont need to give the inventory file while executing the command. we can directly use the command ```ansible all -m ping``` it will take the hosts defined in the inventory file.
+
