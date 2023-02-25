@@ -56,3 +56,8 @@ By modifying the ansible.cfg file, you can customize the behavior of Ansible to 
 
 if we define inventory file in the ansible.cfg file then we dont need to give the inventory file while executing the command. we can directly use the command ```ansible all -m ping``` it will take the hosts defined in the inventory file.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#### ```ansible all --list-hosts```
+
+command to list all the host defined in the inventory file
