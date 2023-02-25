@@ -1,11 +1,13 @@
 ---
-
 - hosts: all
   become: true
   tasks:
-  
-  - name: Install the latest apache version
-    ansible.builtin.yum:
-      name: httpd
-      state: latest
+    - name: Update all the packages
+      ansible.builtin.yum:
+        name: '*'
+        state: latest
 
+    - name: Install the latest apache version
+      ansible.builtin.yum:
+        name: httpd
+        state: latest
