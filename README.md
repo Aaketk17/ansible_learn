@@ -61,3 +61,30 @@ if we define inventory file in the ansible.cfg file then we dont need to give th
 #### ```ansible all --list-hosts```
 
 command to list all the host defined in the inventory file
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#### ```ansible all -m yum -a name=aws-docker```
+
+Command to install the desired packages to all the defined hosts using the `yum` module. if its a ubuntu machine we can use `apt` module 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#### ```--become --ask-become-pass```
+
+`--become` : This is an Ansible option that specifies that the command should be executed with elevated privileges, using the sudo command or another privilege escalation method.
+
+`--ask-become-pass` : This is an Ansible option that specifies that the user should be prompted for the password for privilege escalation.
+
+When you run this command, Ansible will connect to each host in your inventory and execute the apt module with the name parameter set to tmux. The apt module will use the appropriate package manager (apt-get, aptitude, or dpkg) to install the tmux package on each host.
+
+The --become and --ask-become-pass options are used to run the command with elevated privileges. This is necessary to install packages on the remote hosts, which may require root or administrator privileges.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#### ```ansible all -m yum -a update_only=true --become --become-ask-pass``` and ```ansible all -m apt -a update_cache=true --become --become-ask-pass```
+
+to run sudo apt-update or sudo yum update
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
