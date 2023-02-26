@@ -11,3 +11,7 @@
       ansible.builtin.yum:
         name: httpd
         state: latest
+
+    - name: Add php support for apache
+      ansible.builtin.yum:
+        name: libapache2-mode-php
