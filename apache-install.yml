@@ -6,7 +6,7 @@
       ansible.builtin.yum:
         name: '*'
         state: latest
-      when: ansible_distribution in ["Debian", "Ubuntu"] and ansible_distribution_version == "2"
+      when: ansible_distribution in ["Debian", "Ubuntu", "Amazon"] and ansible_distribution_version == "2"
 
     - name: Install the latest apache version
       ansible.builtin.yum:
