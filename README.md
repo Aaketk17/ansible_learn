@@ -93,3 +93,9 @@ to run sudo apt-update or sudo yum update
 Command to run the playbook named apache.ansible.yml also can add `--ask-become-pass` as well
 
 ---
+
+#### `when: ansible_distribution in ["Debian", "Ubuntu", "Amazon"] and ansible_distribution_version == "2"`
+
+particular play will run only if the OS distribution is Debian, Ubuntu or Amazon and if the version is 2
+
+---
