@@ -13,3 +13,9 @@
         name: httpd
         state: latest
       when: ansible_distribution == "Amazon" and ansible_distribution_version == "2"
+
+    - name: Install the latest php version
+      ansible.builtin.yum:
+        name: php
+        state: latest
+      when: ansible_distribution == "Amazon" and ansible_distribution_version == "2"
