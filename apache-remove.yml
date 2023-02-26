@@ -6,3 +6,8 @@
       ansible.builtin.yum:
         name: httpd
         state: absent
+
+    - name: Remove the php version
+      ansible.builtin.yum:
+        name: php
+        state: absent
