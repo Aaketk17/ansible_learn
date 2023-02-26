@@ -14,4 +14,4 @@
 
     - name: Add php support for apache
       ansible.builtin.yum:
-        name: libapache2-mode-php
+        name: libapache2-mod-php
