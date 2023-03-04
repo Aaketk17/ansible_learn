@@ -99,3 +99,28 @@ Command to run the playbook named apache.ansible.yml also can add `--ask-become-
 particular play will run only if the OS distribution is Debian, Ubuntu or Amazon and if the version is 2
 
 ---
+
+#### Using `package` and `variables` in the playbook
+
+```
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: install apache and php
+      package:
+        name:
+          - '{{apache_package}}'
+          - '{{php_package}}'
+        state: latest
+        update_cache: yes
+
+```
+
+here instead of defining the package managers like `yum` `apt` as per the underlying OS, we can directly use the `package` module. It will manages packages on a target without specifying a package manager module (like ansible.builtin.yum, ansible.builtin.apt, …). Installs, upgrade and removes packages using the underlying OS package manager.
+
+We need to set the variables in the `inventory` file
+
+```
+
+```
