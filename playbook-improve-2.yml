@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: install apache2 and php packages for ubuntu
+      apt:
+        name:
+          - apache2
+          - libapache2-mod-php
+        state: latest
+        update_cache: yes
+      when: ansible_distribution in ["Amazon"] and ansible_distribution_version == "2"
+
+    - name: install apache2 and php packages for CentOS
+      apt:
+        name:
+          - httpd
+          - php
+        state: latest
+        update_cache: yes
+      when: ansible_distribution in ["Amazon"] and ansible_distribution_version == "2"
+# we don't need to update the packages and install the desired packages in separate plays we can define that in one play as mentioned above
