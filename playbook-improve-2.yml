@@ -19,4 +19,4 @@
         state: latest
         update_cache: yes
       when: ansible_distribution in ["Amazon"] and ansible_distribution_version == "2"
-# we don't need to update the packages and install the desired packages in separate plays we can define that in one play as mentioned above
+# we don't need to create separate plays to update the packages and install the desired packages, we can define that in one play as mentioned above
