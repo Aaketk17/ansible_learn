@@ -28,3 +28,12 @@
           - '{{ apache_package }}'
           - '{{ php_package }}'
         state: latest
+
+- hosts: db_servers
+  become: true
+  tasks:
+    - name: Install Database servers
+      package:
+        name:
+          - '{{ db_package }}'
+        state: latest
