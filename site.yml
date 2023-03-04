@@ -1,7 +1,7 @@
 ---
 - hosts: all
   become: true
-  tasks:
+  pre_tasks:
     - name: Update package cache
       yum:
         update_cache: yes
@@ -18,13 +18,12 @@
         upgrade: dist
         update_cache: yes
       when: ansible_distribution == "Ubuntu"
-
-- hosts: web_servers
-  become: true
-  tasks:
-    - name: Install apache and php
-      package:
-        name:
-          - '{{ apache_package }}'
-          - '{{ php_package }}'
-      state: latest
+# - hosts: web_servers
+#   become: true
+#   tasks:
+#     - name: Install apache and php
+#       package:
+#         name:
+#           - '{{ apache_package }}'
+#           - '{{ php_package }}'
+#       state: latest
