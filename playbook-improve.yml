@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: update all the package
+      ansible.builtin.yum:
+        name: '*'
+        state: latest
+      when: ansible_distribution in ["Amazon"] and ansible_distribution_version == "2"
+
+    - name: install apache and php
+      ansible.builtin.yum:
+        name:
+          - httpd
+          - php
+        state: latest
+      when: ansible_distribution in ["Amazon"] and ansible_distribution_version == "2"
