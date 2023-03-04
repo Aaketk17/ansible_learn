@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Remove the apache server and php
+      package:
+        name:
+          - '{{ apache_package }}'
+          - '{{ php_package }}'
+        state: absent
