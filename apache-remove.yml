@@ -6,8 +6,10 @@
       ansible.builtin.yum:
         name: httpd
         state: absent
+      when: ansible_distribution == "Amazon"
 
     - name: Remove the php version
       ansible.builtin.yum:
         name: php
         state: absent
+      when: ansible_distribution == "Amazon"
