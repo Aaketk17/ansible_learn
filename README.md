@@ -122,9 +122,11 @@ here instead of defining the package managers like `yum` `apt` as per the underl
 We need to set the variables in the `inventory` file
 
 ```
+# Amazon Linux
 18.221.134.179 apache_package=httpd php_package=php
 52.15.166.135 apache_package=httpd php_package=php
 
+# Ubuntu
 18.191.200.89 apache_package=apache2 php_package=libapache2-mod-php
 
 ```
