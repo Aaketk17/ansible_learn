@@ -9,9 +9,9 @@
           - libapache2-mod-php
         state: latest
         update_cache: yes
-      when: ansible_distribution in ["Amazon"] and ansible_distribution_version == "2"
+      when: ansible_distribution == "Ubuntu"
 
-    - name: install apache2 and php packages for CentOS
+    - name: install apache2 and php packages for Amazon linux
       apt:
         name:
           - httpd
