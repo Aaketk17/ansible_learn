@@ -1,4 +1,23 @@
 ---
+- hosts: web_servers
+  become: true
+  tasks:
+    - name: install apache and php
+      package:
+        name:
+          - '{{ apache_package }}'
+          - '{{ php_package }}'
+        state: latest
+
+- hosts: db_servers
+  become: true
+  tasks:
+    - name: Install Database servers
+      package:
+        name:
+          - '{{ db_package }}'
+        state: latest
+
 - hosts: all
   become: true
   pre_tasks:
@@ -18,22 +37,3 @@
         upgrade: dist
         update_cache: yes
       when: ansible_distribution == "Ubuntu"
-
-- hosts: web_servers
-  become: true
-  tasks:
-    - name: install apache and php
-      package:
-        name:
-          - '{{ apache_package }}'
-          - '{{ php_package }}'
-        state: latest
-
-- hosts: db_servers
-  become: true
-  tasks:
-    - name: Install Database servers
-      package:
-        name:
-          - '{{ db_package }}'
-        state: latest
