@@ -24,8 +24,7 @@
   tasks:
     - name: Install apache and php
       package:
-        - '{{ apache_package }}'
-        - '{{ php_package }}'
+        name:
+          - '{{ apache_package }}'
+          - '{{ php_package }}'
       state: latest
-
-
