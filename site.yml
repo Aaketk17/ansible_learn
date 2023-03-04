@@ -1,0 +1,31 @@
+---
+- hosts: all
+  become: true
+  pre_tasks:
+    - name: Update package cache
+      yum:
+        update_cache: yes
+      when: ansible_distribution == "Amazon"
+
+    - name: Update all packages
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_distribution == "Amazon"
+
+    - name: Install updated (Ubuntu)
+      apt:
+        upgrade: dist
+        update_cache: yes
+      when: ansible_distribution == "Ubuntu"
+
+- hosts: web_servers
+  become: true
+  tasks:
+    - name: Install apache and php
+      package:
+        - '{{ apache_package }}'
+        - '{{ php_package }}'
+      state: latest
+
+
